@@ -27,5 +27,64 @@ RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /us
 RUN rm -rf /var/lib/apt/lists/*
 
 
+
+
+
+
+
+RUN chown -R ${NB_UID} ${HOME}
+USER ${USER}
+
+
+
+
+
+
+
+RUN mkdir -p /home/${NB_USER}/src
+WORKDIR /home/${NB_USER}/src
+
+RUN git clone --recursive https://github.com/bastibl/gnuradio-android.git
+
+WORKDIR /home/${NB_USER}/src/gnuradio-android/thrift
+RUN git clean -xdf
+RUN ./bootstrap.sh
+RUN ./configure --disable-tests --disable-tutorial --with-cpp --without-python --without-qt4 --without-qt5 --without-py3 --without-go --without-nodejs --without-c_glib --without-php --without-csharp --without-java --without-libevent --without-zlib
+RUN make -j $(getconf _NPROCESSORS_ONLN)
+RUN sudo make install
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ENV PATH="${PATH}:${HOME}/.dotnet/tools"
+RUN echo "$PATH"
+
+
+
 # Set root to Notebooks
 WORKDIR ${HOME}/Notebooks/
+
+
