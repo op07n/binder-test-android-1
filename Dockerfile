@@ -15,12 +15,12 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
 
-RUN apt-get install -y --no-install-recommends git build-essential autoconf vim wget unzip sudo xserver-xorg openjdk-11-jre cmake libtool build-essential pkg-config autogen ocaml ocamlbuild bison flex texinfo python-dev python-mako python-six swig3.0 python3-mako python3-numpy
+RUN apt-get install -y --no-install-recommends git build-essential autotools-dev autoconf vim wget unzip sudo xserver-xorg openjdk-11-jre cmake libtool build-essential pkg-config autogen ocaml ocamlbuild bison flex texinfo python-dev python-mako python-six swig3.0 python3-mako python3-numpy
 
 RUN apt-get -y install --fix-missing software-properties-common 
 RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
 
-RUN apt -y install gcc-9 g++-9
+RUN apt -y install gcc-9 g++-9 autotools-dev autoconf 
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gcov gcov /usr/bin/gcov-9
 
 
