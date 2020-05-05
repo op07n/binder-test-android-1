@@ -64,20 +64,18 @@ RUN git clean -xdf
 
 
 
-WORKDIR /home/${NB_USER}/src
-RUN wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/3.6.3.0/android-studio-ide-192.6392135-linux.tar.gz
-RUN tar xvf android-studio-ide-192.6392135-linux.tar.gz
-RUN rm android-studio-ide-192.6392135-linux.tar.gz
+#WORKDIR /home/${NB_USER}/src
+#RUN wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/3.6.3.0/android-studio-ide-192.6392135-linux.tar.gz
+#RUN tar xvf android-studio-ide-192.6392135-linux.tar.gz
+#RUN tar xvf android-studio-ide-192.6392135-linux.tar.gz
+#RUN rm android-studio-ide-192.6392135-linux.tar.gz
 
-RUN wget https://dl.google.com/android/repository/commandlinetools-linux-6200805_latest.zip
-RUN unzip commandlinetools-linux-6200805_latest.zip
+#RUN wget https://dl.google.com/android/repository/commandlinetools-linux-6200805_latest.zip
+#RUN unzip commandlinetools-linux-6200805_latest.zip
 
-RUN mkdir -p /home/${NB_USER}/Android/Sdk
-ENV ANDROID_HOME /home/${NB_USER}/Android/Sdk
-WORKDIR /home/${NB_USER}/src/tools/bin
-
-
-
+#RUN mkdir -p /home/${NB_USER}/Android/Sdk
+#ENV ANDROID_HOME /home/${NB_USER}/Android/Sdk
+#WORKDIR /home/${NB_USER}/src/tools/bin
 
 
 
@@ -96,7 +94,10 @@ WORKDIR /home/${NB_USER}/src/tools/bin
 
 
 
-ENV PATH="${PATH}:${HOME}/.dotnet/tools"
+
+
+
+# ENV PATH="${PATH}:${HOME}/.dotnet/tools"
 RUN echo "$PATH"
 
 
