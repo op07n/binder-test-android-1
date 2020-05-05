@@ -1,4 +1,6 @@
 dbus-x11
+gcc-9
+g++-9
 git
 vim
 wget
