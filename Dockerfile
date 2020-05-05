@@ -36,8 +36,8 @@ RUN rm -rf /var/lib/apt/lists/*
 
 
 
-RUN chown -R ${NB_UID} ${HOME}
-USER ${USER}
+#RUN chown -R ${NB_UID} ${HOME}
+#USER ${USER}
 
 
 
@@ -55,12 +55,14 @@ RUN git clean -xdf
 RUN ./bootstrap.sh
 RUN ./configure --disable-tests --disable-tutorial --with-cpp --without-python --without-qt4 --without-qt5 --without-py3 --without-go --without-nodejs --without-c_glib --without-php --without-csharp --without-java --without-libevent --without-zlib
 RUN make -j $(getconf _NPROCESSORS_ONLN)
-RUN sudo make install
+RUN make install
 
 
 
 
 
+RUN chown -R ${NB_UID} ${HOME}
+USER ${USER}
 
 
 
