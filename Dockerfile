@@ -22,9 +22,9 @@ RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
 
 
 RUN apt -y install gcc-9 g++-9
-RUN build-essential
-RUN autotools-dev
-RUN automake
+RUN apt-get install -y build-essential
+RUN apt-get install -y autotools-dev
+RUN apt-get install -y automake
 
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gcov gcov /usr/bin/gcov-9
 
