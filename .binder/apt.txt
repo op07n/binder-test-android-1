@@ -1,6 +1,6 @@
 dbus-x11
-gcc-9
-g++-9
+gcc-9:ubuntu-toolchain-r-test
+g++-9:ubuntu-toolchain-r-test
 git
 vim
 wget
