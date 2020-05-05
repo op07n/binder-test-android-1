@@ -58,7 +58,7 @@ RUN sudo make install
 
 
 
-l
+
 
 WORKDIR /home/${NB_USER}/src
 RUN wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/3.6.3.0/android-studio-ide-192.6392135-linux.tar.gz
