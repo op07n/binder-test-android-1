@@ -61,8 +61,8 @@ RUN make install
 
 
 
-RUN chown -R ${NB_UID} ${HOME}
-USER ${USER}
+#RUN chown -R ${NB_UID} ${HOME}
+#USER ${USER}
 
 
 
@@ -100,6 +100,20 @@ RUN git clone https://github.com/bastibl/android-fm.git
 #RUN git clone https://github.com/bastibl/android-wlan.git
 
 WORKDIR /home/${NB_USER}/src/gnuradio-android
+
+
+
+
+
+
+RUN chown -R ${NB_UID} ${HOME}
+USER ${USER}
+
+WORKDIR ${HOME}/
+
+
+
+
 
 
 #ENV PATH="${PATH}:${HOME}/.dotnet/tools"
